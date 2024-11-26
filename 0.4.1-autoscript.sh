@@ -219,9 +219,9 @@ sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persisten
 
 # Pruning Settings
 printGreen "12. Setting up pruning config..." && sleep 1
-sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0ua0gi"|g' $HOME/.symphonyd/config/app.toml
-sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.symphonyd/config/config.toml
-sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.symphonyd/config/config.toml
+sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.symphonyd/config/app.toml 
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.symphonyd/config/app.toml
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"19\"/" $HOME/.symphonyd/config/app.toml
 
 # Download the snapshot
 # printGreen "12. Downloading snapshot and starting node..." && sleep 1
